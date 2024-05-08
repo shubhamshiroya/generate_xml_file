@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+	<record id="xml_file_wizard_view_form" model="ir.ui.view">
+		<field name="name">xml.file.wizard.form.view</field>
+		<field name="model">xml.file.wizard</field>
+		<field name="arch" type="xml">
+			<form string="Generate XML file">
+				<group>
+					<group>
+						<field name="file"/>
+						<field name="file_name" invisible="1"/>
+					</group>
+                </group>
+
+				<footer>
+					<button name="read_xml_file_data" class="btn btn-primary" string="Create Sale Record" type="object" />
+					<button special="cancel" string="Cancel" />
+				</footer>
+			</form>
+		</field>
+	</record>
+
+	<record id="xml_file_wizard_action" model="ir.actions.act_window">
+		<field name="name">Xml File Record</field>
+		<field name="res_model">xml.file.wizard</field>
+		<field name="view_id" ref="xml_file_wizard_view_form" />
+		<field name="view_mode">form</field>
+		<field name="target">new</field>
+	</record>
+
+    <menuitem name="Upload XML File" action="xml_file_wizard_action" id="xml_file_rec"
+        parent="sale.menu_sale_config" sequence="3"/>
+
+</odoo>
